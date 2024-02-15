@@ -2,7 +2,7 @@ plugins {
     id("java")
 }
 
-group = "com.qualityneha"
+group = "com.qatoolist"
 version = "1.0-SNAPSHOT"
 
 repositories {
