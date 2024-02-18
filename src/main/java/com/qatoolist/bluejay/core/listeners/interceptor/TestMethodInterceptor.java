@@ -1,4 +1,4 @@
-package com.qatoolist.bluejay.listeners.interceptor;
+package com.qatoolist.bluejay.core.listeners.interceptor;
 
 import org.testng.IMethodInstance;
 import org.testng.IMethodInterceptor;

@@ -1,7 +1,7 @@
-package com.qatoolist.bluejay.drivers;
+package com.qatoolist.bluejay.core.drivers;
 
-import com.qatoolist.bluejay.config.ConfigManager;
-import com.qatoolist.bluejay.exceptions.UnsupportedBrowserException;
+import com.qatoolist.bluejay.core.config.ConfigManager;
+import com.qatoolist.bluejay.core.exceptions.UnsupportedBrowserException;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

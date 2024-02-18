@@ -1,4 +1,4 @@
-package com.qatoolist.bluejay.utils;
+package com.qatoolist.bluejay.core.utils;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;

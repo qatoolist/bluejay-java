@@ -1,4 +1,4 @@
-package com.qatoolist.bluejay.reporting;
+package com.qatoolist.bluejay.core.reporting;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;

@@ -1,4 +1,4 @@
-package com.qatoolist.bluejay.exceptions;
+package com.qatoolist.bluejay.core.exceptions;
 
 public class ConfigLoadException extends RuntimeException {
 

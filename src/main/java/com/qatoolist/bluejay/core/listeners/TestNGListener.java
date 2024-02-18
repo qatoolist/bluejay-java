@@ -1,17 +1,16 @@
-package com.qatoolist.bluejay.listeners;
+package com.qatoolist.bluejay.core.listeners;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
-import com.qatoolist.bluejay.drivers.WebDriverFactory;
-import com.qatoolist.bluejay.reporting.ExtentReportManager;
-import com.qatoolist.bluejay.utils.ScreenshotUtils;
+import com.qatoolist.bluejay.core.reporting.ExtentReportManager;
+import com.qatoolist.bluejay.core.utils.ScreenshotUtils;
+import com.qatoolist.bluejay.core.drivers.WebDriverFactory;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.ISuite;
-import org.testng.ISuiteListener;
 
 /**
  * TestNGListener implements TestNG's ITestListener interface to interact with test events

@@ -1,4 +1,4 @@
-package com.qatoolist.bluejay.utils.providers;
+package com.qatoolist.bluejay.core.utils.providers;
 
 import java.lang.reflect.Method;
 import java.util.List;

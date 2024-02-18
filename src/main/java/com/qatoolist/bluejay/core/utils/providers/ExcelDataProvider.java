@@ -1,8 +1,7 @@
-package com.qatoolist.bluejay.utils.providers;
+package com.qatoolist.bluejay.core.utils.providers;
 
-import com.qatoolist.bluejay.exceptions.DataProviderException;
+import com.qatoolist.bluejay.core.exceptions.DataProviderException;
 import org.apache.poi.ss.usermodel.*;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.File;
 import java.io.FileInputStream;

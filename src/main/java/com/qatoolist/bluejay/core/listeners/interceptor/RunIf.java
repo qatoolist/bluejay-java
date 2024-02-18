@@ -1,4 +1,4 @@
-package com.qatoolist.bluejay.listeners.interceptor;
+package com.qatoolist.bluejay.core.listeners.interceptor;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

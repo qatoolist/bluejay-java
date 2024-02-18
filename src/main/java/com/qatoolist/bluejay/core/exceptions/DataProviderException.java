@@ -1,4 +1,4 @@
-package com.qatoolist.bluejay.exceptions;
+package com.qatoolist.bluejay.core.exceptions;
 
 /**
  * DataProviderException represents an exception that occurs during data retrieval

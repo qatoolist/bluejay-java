@@ -1,4 +1,4 @@
-package com.qatoolist.bluejay.listeners.retry;
+package com.qatoolist.bluejay.core.listeners.retry;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

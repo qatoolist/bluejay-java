@@ -1,13 +1,11 @@
-package com.qatoolist.bluejay.config;
+package com.qatoolist.bluejay.core.config;
 
-import com.qatoolist.bluejay.exceptions.ConfigLoadException;
+import com.qatoolist.bluejay.core.exceptions.ConfigLoadException;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 
 /**

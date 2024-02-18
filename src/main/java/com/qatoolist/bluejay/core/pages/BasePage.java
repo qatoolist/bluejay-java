@@ -1,6 +1,6 @@
-package com.qatoolist.bluejay.pages;
+package com.qatoolist.bluejay.core.pages;
 
-import com.qatoolist.bluejay.config.ConfigManager;
+import com.qatoolist.bluejay.core.config.ConfigManager;
 import org.apache.hc.core5.util.Timeout;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

@@ -1,4 +1,4 @@
-package com.qatoolist.bluejay.utils.providers;
+package com.qatoolist.bluejay.core.utils.providers;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

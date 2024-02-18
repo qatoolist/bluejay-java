@@ -1,4 +1,4 @@
-package com.qatoolist.bluejay.listeners.retry;
+package com.qatoolist.bluejay.core.listeners.retry;
 
 import org.testng.IAnnotationTransformer;
 import org.testng.annotations.ITestAnnotation;

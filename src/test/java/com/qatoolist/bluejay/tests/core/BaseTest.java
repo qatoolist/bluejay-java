@@ -1,9 +1,9 @@
 package com.qatoolist.bluejay.tests.core;
 
-import com.qatoolist.bluejay.drivers.WebDriverFactory;
-import com.qatoolist.bluejay.listeners.TestNGListener;
-import com.qatoolist.bluejay.listeners.interceptor.TestMethodInterceptor;
-import com.qatoolist.bluejay.listeners.retry.RetryTransformer;
+import com.qatoolist.bluejay.core.drivers.WebDriverFactory;
+import com.qatoolist.bluejay.core.listeners.TestNGListener;
+import com.qatoolist.bluejay.core.listeners.interceptor.TestMethodInterceptor;
+import com.qatoolist.bluejay.core.listeners.retry.RetryTransformer;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
