@@ -56,7 +56,7 @@ tasks.withType<Javadoc>() {
     val javaSrc = sourceSets.main.get().allJava
     source = javaSrc
 
-    (options as StandardJavadocDocletOptions).links("https://docs.oracle.com/javase/8/docs/api/index.html")
+    (options as StandardJavadocDocletOptions).links("https://docs.oracle.com/javase/21/docs/api/index.html")
 }
 
 tasks.test {

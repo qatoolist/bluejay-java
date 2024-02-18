@@ -10,8 +10,6 @@ import java.lang.annotation.Target;
  * environment. Methods annotated with RunIf will only be executed if the current environment
  * matches the value provided in the 'environment' attribute.
  *
- * @Target({ElementType.METHOD}) // Can only be applied to methods
- * @Retention(RetentionPolicy.RUNTIME) // Annotation data available at runtime
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD})
