@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN"> <Properties>
-    <Property name="logDir">logs</Property>
-    <Property name="baseFileName">automation</Property>
-    <Property name="patternLayout">[%-5level] %d{ISO8601} [%t] %c{1.} - %msg%n</Property>
-</Properties>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="logDir">logs</Property>
+        <Property name="baseFileName">automation</Property>
+        <Property name="patternLayout">[%-5level] %d{ISO8601} [%t] %c{1.} - %msg%n</Property>
+    </Properties>
 
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
@@ -14,7 +15,9 @@
                      filePattern="${logDir}/${baseFileName}-%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout pattern="${patternLayout}"/>
             <Policies>
-                <TimeBasedTriggeringPolicy /> <SizeBasedTriggeringPolicy size="10 MB"/> </Policies>
+                <TimeBasedTriggeringPolicy/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
         </RollingFile>
     </Appenders>
 

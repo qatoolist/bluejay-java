@@ -23,7 +23,8 @@ public class WebDriverFactory {
 
     private static ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
 
-    private WebDriverFactory() {} // Prevent instantiation
+    private WebDriverFactory() {
+    } // Prevent instantiation
 
     /**
      * Returns a WebDriver instance based on the system property "browser" (default: "chrome").

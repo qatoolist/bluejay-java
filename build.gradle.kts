@@ -50,6 +50,15 @@ dependencies {
     implementation("com.google.guava:guava:$guavaVersion")
 }
 
+tasks.withType<Javadoc>() {
+    options.encoding = "UTF-8"
+
+    val javaSrc = sourceSets.main.get().allJava
+    source = javaSrc
+
+    (options as StandardJavadocDocletOptions).links("https://docs.oracle.com/javase/8/docs/api/index.html")
+}
+
 tasks.test {
     useTestNG()
 

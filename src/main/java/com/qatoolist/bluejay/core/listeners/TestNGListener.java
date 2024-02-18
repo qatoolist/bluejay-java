@@ -3,21 +3,17 @@ package com.qatoolist.bluejay.core.listeners;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.qatoolist.bluejay.core.drivers.WebDriverFactory;
 import com.qatoolist.bluejay.core.reporting.ExtentReportManager;
 import com.qatoolist.bluejay.core.utils.ScreenshotUtils;
-import com.qatoolist.bluejay.core.drivers.WebDriverFactory;
-import org.testng.ISuiteListener;
-import org.testng.ITestContext;
-import org.testng.ITestListener;
-import org.testng.ITestResult;
-import org.testng.ISuite;
+import org.testng.*;
 
 /**
  * TestNGListener implements TestNG's ITestListener interface to interact with test events
  * and provide enhanced reporting using ExtentReports. Features include:
- *  * Detailed execution logs printed to the console
- *  * Comprehensive ExtentReports test logs
- *  * Screenshot capture on test failures
+ * * Detailed execution logs printed to the console
+ * * Comprehensive ExtentReports test logs
+ * * Screenshot capture on test failures
  */
 public class TestNGListener implements ITestListener, ISuiteListener {
 
@@ -25,6 +21,7 @@ public class TestNGListener implements ITestListener, ISuiteListener {
     private static final ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
     private ExtentTest suiteTest;
+
     /**
      * Invoked before the SuiteRunner starts.
      */

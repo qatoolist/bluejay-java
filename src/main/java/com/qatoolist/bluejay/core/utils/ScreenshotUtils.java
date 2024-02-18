@@ -21,7 +21,7 @@ public class ScreenshotUtils {
      * Captures a screenshot from the WebDriver, saves it to the 'screenshots' directory,
      * and returns the absolute path. Uses a dynamic filename with a timestamp.
      *
-     * @param driver     The WebDriver instance
+     * @param driver The WebDriver instance
      * @return The absolute path of the captured screenshot, or null if an error occurs.
      */
     public static String captureScreenshot(WebDriver driver) {

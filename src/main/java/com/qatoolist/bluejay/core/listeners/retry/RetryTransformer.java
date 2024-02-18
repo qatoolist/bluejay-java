@@ -17,10 +17,10 @@ public class RetryTransformer implements IAnnotationTransformer {
      * Transforms a TestNG annotation, dynamically assigning the `RetryAnalyzer`
      * if the test method is annotated with `@Retry`.
      *
-     * @param annotation     The TestNG annotation
-     * @param testClass      The test class (unused)
+     * @param annotation      The TestNG annotation
+     * @param testClass       The test class (unused)
      * @param testConstructor The test constructor (unused)
-     * @param testMethod     The test method
+     * @param testMethod      The test method
      */
     @Override
     public void transform(ITestAnnotation annotation, Class testClass, Constructor testConstructor, Method testMethod) {

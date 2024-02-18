@@ -1,4 +1,5 @@
 package com.qatoolist.bluejay.core.listeners.retry;
+
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 

@@ -49,9 +49,10 @@ public class ExcelDataProvider implements IDataProvider {
 
     /**
      * Helper method to retrieve the filename from the test method's @DataFile annotation.
+     *
      * @param testMethod The test method
-     * @returns The filename specified in the @DataFile annotation
      * @throws DataProviderException if the annotation is missing or the file is not specified.
+     * @returns The filename specified in the @DataFile annotation
      */
     private String getFileNameFromAnnotation(Method testMethod) {
         DataFile dataFileAnnotation = testMethod.getAnnotation(DataFile.class);
@@ -70,6 +71,7 @@ public class ExcelDataProvider implements IDataProvider {
 
     /**
      * Helper method to extract the cell's value and convert it to the appropriate data type.
+     *
      * @param cell The Excel cell
      * @return The extracted cell value
      */

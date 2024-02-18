@@ -14,7 +14,8 @@ public class ExtentReportManager {
     private static ExtentReports extentReports;
 
     // Private constructor to enforce non-instantiability
-    private ExtentReportManager() {}
+    private ExtentReportManager() {
+    }
 
     /**
      * Retrieves the ExtentReports instance (creating it if necessary).
