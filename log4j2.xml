@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN"> <Properties>
+    <Property name="logDir">logs</Property>
+    <Property name="baseFileName">automation</Property>
+    <Property name="patternLayout">[%-5level] %d{ISO8601} [%t] %c{1.} - %msg%n</Property>
+</Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${patternLayout}"/>
+        </Console>
+
+        <RollingFile name="FileAppender" fileName="${logDir}/${baseFileName}-${date:yyyy-MM-dd}.log"
+                     filePattern="${logDir}/${baseFileName}-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${patternLayout}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy /> <SizeBasedTriggeringPolicy size="10 MB"/> </Policies>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="com.qatoolist.bluejay" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileAppender"/>
+        </Logger>
+
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FileAppender"/>
+        </Root>
+    </Loggers>
+</Configuration>

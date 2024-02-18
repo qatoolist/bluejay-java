@@ -231,4 +231,6 @@ eval "set -- $(
         tr '\n' ' '
     )" '"$@"'
 
+export AUTO_ENV="PROD"
+
 exec "$JAVACMD" "$@"
