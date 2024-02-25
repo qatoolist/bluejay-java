@@ -21,8 +21,11 @@ import java.util.Properties;
  */
 public class WebDriverFactory {
 
-    private static ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> driverPool = new ThreadLocal<>();
 
+    static {
+        driverPool.remove();
+    }
     private WebDriverFactory() {
     } // Prevent instantiation
 

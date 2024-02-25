@@ -1,0 +1,1 @@
+./gradlew sonar clean build test

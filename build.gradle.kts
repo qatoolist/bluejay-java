@@ -9,9 +9,11 @@ val mockitoVersion = "5.10.0"
 val mockitoTestngVersion = "0.5.2"
 val commonsIoVersion = "2.15.1"
 val guavaVersion = "33.0.0-jre"
+val sonarVersion = "10.6.0.2114"
 
 plugins {
     id("java")
+    id("org.sonarqube") version "4.4.1.3373"
     kotlin("jvm") version "1.8.0"
 }
 
@@ -23,6 +25,9 @@ repositories {
 }
 
 dependencies {
+
+    compileOnly("org.sonarsource.api.plugin:sonar-plugin-api:$sonarVersion")
+
     // Core Selenium & WebDriver
     implementation("org.seleniumhq.selenium:selenium-java:$seleniumVersion")
     implementation("io.github.bonigarcia:webdrivermanager:$webdriverManagerVersion")
@@ -41,13 +46,22 @@ dependencies {
     implementation("org.apache.logging.log4j:log4j-api:$log4jVersion")
     implementation("org.apache.logging.log4j:log4j-core:$log4jVersion")
 
+    // Other potential dependencies
+    implementation("commons-io:commons-io:$commonsIoVersion")
+    implementation("com.google.guava:guava:$guavaVersion")
+
     // Mocking (Mockito)
     testImplementation("org.mockito:mockito-core:$mockitoVersion")
     testImplementation("org.mockito:mockito-testng:$mockitoTestngVersion")
 
-    // Other potential dependencies
-    implementation("commons-io:commons-io:$commonsIoVersion")
-    implementation("com.google.guava:guava:$guavaVersion")
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "bluejay")
+        property("sonar.projectName", "bluejay")
+        property("sonar.host.url", "http://localhost")
+    }
 }
 
 tasks.withType<Javadoc>() {

@@ -76,14 +76,35 @@ public class ExcelDataProvider implements IDataProvider {
      * @return The extracted cell value
      */
     private Object getCellValue(Cell cell) {
-        switch (cell.getCellType()) {
+        CellType cellType = cell.getCellType();
+        if(cellType == CellType.FORMULA) {
+            // For formulas, evaluate the type of the formula result
+            cellType = cell.getCachedFormulaResultType();
+        }
+
+        switch (cellType) {
             case STRING:
                 return cell.getStringCellValue();
+            case BOOLEAN:
+                return cell.getBooleanCellValue();
             case NUMERIC:
-                return cell.getNumericCellValue();
-            // Add handling for other types (Boolean, Date, Formula) as needed
+                if(DateUtil.isCellDateFormatted(cell)) {
+                    // Return as java.util.Date if the numeric value is formatted as a date
+                    return cell.getDateCellValue();
+                } else {
+                    double numericValue = cell.getNumericCellValue();
+                    // Check if the number is an integer or has a decimal part
+                    if((numericValue == Math.floor(numericValue)) && !Double.isInfinite(numericValue)) {
+                        // Convert to long first to handle large numbers correctly
+                        long longValue = (long) numericValue;
+                        // Convert to int if it fits, otherwise return as long to avoid data loss
+                        return (int) longValue == longValue ? (int) longValue : longValue;
+                    } else {
+                        return numericValue; // Return as Double if it has a decimal part
+                    }
+                }
             default:
-                return null; // Or throw a DataProviderException for unhandled types
+                return null; // Or you might want to handle error or add more case for CELL_TYPE_ERROR, CELL_TYPE_BLANK
         }
     }
 }

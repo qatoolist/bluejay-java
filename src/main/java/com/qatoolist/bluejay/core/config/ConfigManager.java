@@ -1,6 +1,9 @@
 package com.qatoolist.bluejay.core.config;
 
 import com.qatoolist.bluejay.core.exceptions.ConfigLoadException;
+import com.qatoolist.bluejay.core.listeners.retry.RetryAnalyzer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -21,12 +24,14 @@ public class ConfigManager {
 
     private static final String ENV = System.getProperty("AUTO_ENV", "default");
     private static final Integer DEFAULT_TIMEOUT = Integer.valueOf(System.getProperty("timeout", "10"));
-    private static String BASE_URL = "";
+    private static String baseURL = "";
+
+    private static final Logger logger = LogManager.getLogger(ConfigManager.class);
 
     static {
         loadDefaultConfigurations();
         loadEnvironmentSpecificConfigurations();
-        BASE_URL = getProperty("app.base_url");
+        baseURL = getProperty("app.base_url");
     }
 
     private ConfigManager() {
@@ -57,7 +62,7 @@ public class ConfigManager {
      * @return The base URL.
      */
     public static String getBaseUrl() {
-        return BASE_URL;
+        return baseURL;
     }
 
     /**
@@ -145,7 +150,8 @@ public class ConfigManager {
         try {
             return Integer.valueOf(value);
         } catch (NumberFormatException e) {
-            System.err.println("Invalid format for key: " + key + ", using default value: null");
+            String error = "Invalid format for key: " + key + ", using default value: null";
+            logger.error(error);
             return null;
         }
     }
@@ -162,7 +168,8 @@ public class ConfigManager {
         try {
             return Integer.valueOf(value);
         } catch (NumberFormatException e) {
-            System.err.println("Invalid format for key: " + key + ", using default value: " + defaultValue);
+            String error = "Invalid format for key: " + key + ", using default value: " + defaultValue;
+            logger.error(error);
             return defaultValue;
         }
     }

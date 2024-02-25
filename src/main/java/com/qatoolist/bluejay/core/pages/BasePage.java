@@ -14,14 +14,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * wait configuration, common utility methods for element interactions, and mechanisms
  * to facilitate page load waits and verification.
  */
-public abstract class BasePage {
+public abstract class BasePage implements INavigable {
 
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected String url;
     protected String title;
 
-    protected long DEFAULT_TIMEOUT;
+    protected final long defaultTimeout=ConfigManager.getDefaultTimeout();
 
     /**
      * Constructor initializes the WebDriver, establishes a default wait, and uses
@@ -29,10 +29,9 @@ public abstract class BasePage {
      *
      * @param driver The active WebDriver instance
      */
-    public BasePage(WebDriver driver) {
+    protected BasePage(WebDriver driver) {
         this.driver = driver;
-        this.DEFAULT_TIMEOUT = ConfigManager.getDefaultTimeout();
-        this.wait = new WebDriverWait(driver, Timeout.ofSeconds(DEFAULT_TIMEOUT).toDuration());
+        this.wait = new WebDriverWait(driver, Timeout.ofSeconds(defaultTimeout).toDuration());
         PageFactory.initElements(driver, this);
     }
 

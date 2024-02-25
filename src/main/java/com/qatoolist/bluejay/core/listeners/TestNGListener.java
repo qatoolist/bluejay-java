@@ -20,6 +20,10 @@ public class TestNGListener implements ITestListener, ISuiteListener {
     private static final ExtentReports extentReports = ExtentReportManager.getReportInstance();
     private static final ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
+    static {
+        extentTest.remove();
+    }
+
     private ExtentTest suiteTest;
 
     /**
@@ -27,9 +31,8 @@ public class TestNGListener implements ITestListener, ISuiteListener {
      */
     @Override
     public void onStart(ISuite suite) {
-        System.out.println("Initializing Suite: " + suite.getName());
         suiteTest = extentReports.createTest("Suite: " + suite.getName());
-        suiteTest.log(Status.INFO, "Suite Initialization");
+        suiteTest.log(Status.INFO, "Suite Initialized");
     }
 
     /**
@@ -37,7 +40,6 @@ public class TestNGListener implements ITestListener, ISuiteListener {
      */
     @Override
     public void onFinish(ISuite suite) {
-        System.out.println("Completing Suite: " + suite.getName());
         suiteTest.log(Status.INFO, "Suite Completion");
         // Note: Flushing extentReports here may cause premature finalization if multiple suites are involved.
         // It's better to flush in ITestContext#onFinish to ensure all tests are accounted for.
@@ -50,9 +52,8 @@ public class TestNGListener implements ITestListener, ISuiteListener {
      */
     @Override
     public void onStart(ITestContext context) {
-        System.out.println("Starting Test Suite: " + context.getName());
         ExtentTest suite = extentReports.createTest("Test Suite: " + context.getName());
-        suite.log(Status.INFO, "Test Suite started on: " + context.getStartDate());
+        suite.log(Status.INFO, "Test Suite ["+context.getName()+"] started on: " + context.getStartDate());
     }
 
     /**
@@ -62,7 +63,7 @@ public class TestNGListener implements ITestListener, ISuiteListener {
      */
     @Override
     public void onFinish(ITestContext context) {
-        System.out.println("Finishing Test Suite: " + context.getName());
+        suiteTest.log(Status.INFO, "Finishing Test Suite: " + context.getName());
         extentReports.flush();
     }
 
@@ -73,7 +74,6 @@ public class TestNGListener implements ITestListener, ISuiteListener {
      */
     @Override
     public void onTestStart(ITestResult result) {
-        System.out.println("Starting Test: " + result.getMethod().getMethodName());
         ExtentTest test = extentReports.createTest(result.getMethod().getMethodName());
         test.log(Status.INFO, "Starting Test: " + result.getMethod().getDescription());
         extentTest.set(test);
@@ -86,7 +86,6 @@ public class TestNGListener implements ITestListener, ISuiteListener {
      */
     @Override
     public void onTestSuccess(ITestResult result) {
-        System.out.println("Test Passed: " + result.getMethod().getMethodName());
         extentTest.get().log(Status.PASS, "Test Passed: " + result.getMethod().getMethodName());
     }
 
@@ -97,7 +96,6 @@ public class TestNGListener implements ITestListener, ISuiteListener {
      */
     @Override
     public void onTestFailure(ITestResult result) {
-        System.out.println("Test Failed: " + result.getMethod().getMethodName());
         extentTest.get().fail(result.getThrowable()); // Log the throwable (stack trace)
 
         try {
@@ -119,7 +117,6 @@ public class TestNGListener implements ITestListener, ISuiteListener {
      */
     @Override
     public void onTestSkipped(ITestResult result) {
-        System.out.println("Test Skipped: " + result.getMethod().getMethodName());
         extentTest.get().log(Status.SKIP, "Test Skipped: " + result.getMethod().getMethodName() + " due to: " + result.getThrowable());
     }
 

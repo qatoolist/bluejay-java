@@ -1,5 +1,7 @@
 package com.qatoolist.bluejay.core.listeners.retry;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
@@ -10,6 +12,8 @@ import org.testng.ITestResult;
 public class RetryAnalyzer implements IRetryAnalyzer {
 
     private int retryCount = 0;
+
+    private static final Logger logger = LogManager.getLogger(RetryAnalyzer.class);
 
     /**
      * Determines if a failed test should be retried based on the configured maximum retries and backoff time.
@@ -31,7 +35,8 @@ public class RetryAnalyzer implements IRetryAnalyzer {
                     Thread.sleep(backoffTimeMs);
                 } catch (InterruptedException e) {
                     Thread.currentThread().interrupt(); // Preserve interrupted status
-                    System.err.println("Thread interrupted during retry backoff: " + e.getMessage());
+                    String error = "Thread interrupted during retry backoff: " + e.getMessage();
+                    logger.error( error );
                 }
                 return true; // Trigger a retry
             }

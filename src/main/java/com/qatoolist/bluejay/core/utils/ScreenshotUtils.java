@@ -1,6 +1,9 @@
 package com.qatoolist.bluejay.core.utils;
 
+import com.qatoolist.bluejay.core.listeners.retry.RetryAnalyzer;
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -17,6 +20,8 @@ public class ScreenshotUtils {
 
     private static final String SCREENSHOT_DIRECTORY = "screenshots";
 
+    private static final Logger logger = LogManager.getLogger(ScreenshotUtils.class);
+
     /**
      * Captures a screenshot from the WebDriver, saves it to the 'screenshots' directory,
      * and returns the absolute path. Uses a dynamic filename with a timestamp.
@@ -26,7 +31,7 @@ public class ScreenshotUtils {
      */
     public static String captureScreenshot(WebDriver driver) {
         if (!(driver instanceof TakesScreenshot)) {
-            System.err.println("Driver does not support screenshots.");
+            logger.error("Driver does not support screenshots.");
             return null;
         }
 
@@ -44,7 +49,8 @@ public class ScreenshotUtils {
             return targetFile.getAbsolutePath();
 
         } catch (IOException e) {
-            System.err.println("Failed to capture or save screenshot: " + e.getMessage());
+            String error = "Failed to capture or save screenshot: " + e.getMessage();
+            logger.error(error);
             return null;
         }
     }
