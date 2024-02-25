@@ -1,6 +1,5 @@
 package com.qatoolist.bluejay.core.utils;
 
-import com.qatoolist.bluejay.core.listeners.retry.RetryAnalyzer;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

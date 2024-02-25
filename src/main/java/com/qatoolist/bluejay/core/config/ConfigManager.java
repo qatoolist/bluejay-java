@@ -1,7 +1,7 @@
 package com.qatoolist.bluejay.core.config;
 
 import com.qatoolist.bluejay.core.exceptions.ConfigLoadException;
-import com.qatoolist.bluejay.core.listeners.retry.RetryAnalyzer;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
