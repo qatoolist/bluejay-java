@@ -21,6 +21,10 @@ public class ScreenshotUtils {
 
     private static final Logger logger = LogManager.getLogger(ScreenshotUtils.class);
 
+    private ScreenshotUtils() {
+        throw new IllegalStateException("Utility class");
+    }
+
     /**
      * Captures a screenshot from the WebDriver, saves it to the 'screenshots' directory,
      * and returns the absolute path. Uses a dynamic filename with a timestamp.

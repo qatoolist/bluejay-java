@@ -16,6 +16,10 @@ public class DateUtils {
      * @return The formatted date and time string.
      * @throws DateTimeParseException if the pattern is invalid.
      */
+
+    private DateUtils() {
+        throw new IllegalStateException("Utility class");
+    }
     public static String getCurrentDateTime(String pattern) {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
